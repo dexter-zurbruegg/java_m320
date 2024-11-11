@@ -49,9 +49,23 @@ public class Time {
         return second;
     }
 
-    @Override
     public String toString() {
         return String.format("%02d:%02d:%02d", hour, minute, second);
+    }
+
+    public void nextSecond() {
+        second++;
+        if (second == 60) {
+            second = 0;
+            minute++;
+            if (minute == 60) {
+                minute = 0;
+                hour++;
+                if (hour == 24) {
+                    hour = 0;
+                }
+            }
+        }
     }
 }
 
