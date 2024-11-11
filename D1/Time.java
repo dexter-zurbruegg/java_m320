@@ -58,42 +58,35 @@ public class Time {
 public class TimeTest {
     public static void main(String[] args) {
         try {
-            // Test Constructor and toString
             Time time = new Time(10, 20, 30);
             System.out.println("Initial Time: " + time); // Expected: 10:20:30
 
-            // Test Setters and Getters
             time.setHour(12);
             time.setMinute(45);
             time.setSecond(50);
             System.out.println("Updated Time: " + time); // Expected: 12:45:50
 
-            // Test Invalid Hour
             try {
                 time.setHour(25);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage()); // Expected: Invalid hour
             }
 
-            // Test Invalid Minute
             try {
                 time.setMinute(65);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage()); // Expected: Invalid minute
             }
 
-            // Test Invalid Second
             try {
                 time.setSecond(70);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage()); // Expected: Invalid second
             }
 
-            // Test setTime with valid values
             time.setTime(15, 30, 45);
             System.out.println("Set Time: " + time); // Expected: 15:30:45
 
-            // Test setTime with invalid values
             try {
                 time.setTime(25, 61, 61);
             } catch (IllegalArgumentException e) {
