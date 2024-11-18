@@ -35,6 +35,22 @@ public class TimeTest {
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage()); // Expected: Invalid hour, minute, or second
             }
+
+            time.setTime(23, 59, 59);
+            System.out.println("Before nextSecond: " + time);
+            time.nextSecond();
+            System.out.println("After nextSecond: " + time + ", Expected: 00:00:00");
+
+            time.setTime(13, 45, 59);
+            System.out.println("Before nextSecond: " + time);
+            time.nextSecond();
+            System.out.println("After nextSecond: " + time + ", Expected: 13:46:00");
+
+            time.setTime(10, 20, 58);
+            System.out.println("Before nextSecond: " + time);
+            time.nextSecond();
+            System.out.println("After nextSecond: " + time+ ", Expected: 10:20:59");
+
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
