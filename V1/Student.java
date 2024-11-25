@@ -13,9 +13,4 @@ public class Student extends Person {
     public void setGradeLevel(int gradeLevel) {
         this.gradeLevel = gradeLevel;
     }
-
-    @Override
-    public String toString() {
-        return "Student [" + super.toString() + ", Grade Level: " + gradeLevel + "]";
-    }
 }

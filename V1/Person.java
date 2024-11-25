@@ -35,10 +35,4 @@ public class Person {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    // Override toString for easier display
-    @Override
-    public String toString() {
-        return "Name: " + name + ", Birthday: " + birthday + ", Address: " + address;
-    }
 }

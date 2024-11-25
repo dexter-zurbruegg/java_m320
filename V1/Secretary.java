@@ -13,9 +13,4 @@ public class Secretary extends Person {
     public void setOfficeNumber(String officeNumber) {
         this.officeNumber = officeNumber;
     }
-
-    @Override
-    public String toString() {
-        return "Secretary [" + super.toString() + ", Office Number: " + officeNumber + "]";
-    }
 }
