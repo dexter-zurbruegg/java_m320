@@ -13,4 +13,9 @@ public class SocialWorker extends Person {
     public void setAreaOfFocus(String areaOfFocus) {
         this.areaOfFocus = areaOfFocus;
     }
+
+    @Override
+    public String toString() {
+        return "Social Worker [" + super.toString() + ", Area of Focus: " + areaOfFocus + "]";
+    }
 }
