@@ -4,7 +4,7 @@ import java.util.List;
 
 public class AdminUser extends User {
     public AdminUser(String name, String userId) {
-        super(name, userId);
+        super(name, userId, "Admin");
     }
 
     public void addBook(Book book) {
@@ -15,8 +15,8 @@ public class AdminUser extends User {
         Library.getInstance().removeBook(book);
     }
 
-    public void collectFine(User user, double amount) {
-        user.payFine(amount);
+    public void removeUser(User user) {
+        Library.getInstance().removeUser(user);
     }
 
     public void generateBorrowedBooksReport() {
