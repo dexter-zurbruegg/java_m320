@@ -9,7 +9,8 @@ public class RegularUser extends User {
 
     @Override
     public void borrowBook(Book book) throws LibraryException {
-        Library.getInstance().borrowBook(this, book);
+        Library library = Library.getInstance();
+        library.borrowBook(this, book);
         super.borrowBook(book);
     }
 
@@ -19,7 +20,8 @@ public class RegularUser extends User {
         if (fine > 0) {
             System.out.println("Fine to be paid: $" + fine);
         }
-        Library.getInstance().returnBook(this, book);
+        Library library = Library.getInstance();
+        library.returnBook(this, book);
         super.returnBook(book);
     }
 
