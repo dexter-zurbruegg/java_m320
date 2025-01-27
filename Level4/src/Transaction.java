@@ -7,12 +7,14 @@ public class Transaction {
     private Book book;
     private Date transactionDate;
     private String transactionType;
+    private double finePaid;
 
     public Transaction(User user, Book book, String transactionType) {
         this.user = user;
         this.book = book;
         this.transactionDate = new Date();
         this.transactionType = transactionType;
+        this.finePaid = 0.0;
     }
 
     public User getUser() {
@@ -29,5 +31,13 @@ public class Transaction {
 
     public String getTransactionType() {
         return transactionType;
+    }
+
+    public double getFinePaid() {
+        return finePaid;
+    }
+
+    public void setFinePaid(double finePaid) {
+        this.finePaid = finePaid;
     }
 }
