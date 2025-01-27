@@ -3,7 +3,7 @@ package Level4.src;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User implements Observer {
     private String name;
     private String userId;
     private List<Book> borrowedBooks;
@@ -53,4 +53,10 @@ public class User {
     public void returnBook(Book book) {
         borrowedBooks.remove(book);
     }
+
+    @Override
+    public void update(String message) {
+        System.out.println("Notification for " + name + ": " + message);
+    }
 }
+

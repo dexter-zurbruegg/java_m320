@@ -2,7 +2,7 @@ package Level4.src;
 
 import java.util.Date;
 
-public class Book {
+public class Book extends Subject {
     private String title;
     private String author;
     private String ISBN;
@@ -28,7 +28,12 @@ public class Book {
     public String getAuthor() { return author; }
     public String getISBN() { return ISBN; }
     public boolean isAvailable() { return isAvailable; }
-    public void setAvailable(boolean available) { isAvailable = available; }
+    public void setAvailable(boolean available) {
+        if (!this.isAvailable && available) {
+            notifyObservers("The book '" + title + "' is now available.");
+        }
+        this.isAvailable = available;
+    }
     public Date getDueDate() { return dueDate; }
     public void setDueDate(Date dueDate) { this.dueDate = dueDate; }
     public String getCategory() { return category; }
