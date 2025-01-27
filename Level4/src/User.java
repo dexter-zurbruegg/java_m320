@@ -7,11 +7,13 @@ public class User {
     private String name;
     private String userId;
     private List<Book> borrowedBooks;
+    private double totalFines;
 
     public User(String name, String userId) {
         this.name = name;
         this.userId = userId;
         this.borrowedBooks = new ArrayList<>();
+        this.totalFines = 0.0;
     }
 
     public String getName() {
@@ -24,6 +26,22 @@ public class User {
 
     public List<Book> getBorrowedBooks() {
         return borrowedBooks;
+    }
+
+    public double getTotalFines() {
+        return totalFines;
+    }
+
+    public void addFine(double fine) {
+        this.totalFines += fine;
+    }
+
+    public void payFine(double amount) {
+        if (amount > totalFines) {
+            totalFines = 0.0;
+        } else {
+            totalFines -= amount;
+        }
     }
 
     public void borrowBook(Book book) throws LibraryException {
