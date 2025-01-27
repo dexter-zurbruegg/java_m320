@@ -35,4 +35,24 @@ public class Catalog implements Searchable {
         }
         return result;
     }
+
+    public List<Book> searchByISBN(String ISBN) {
+        List<Book> result = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getISBN().equals(ISBN)) {
+                result.add(book);
+            }
+        }
+        return result;
+    }
+
+    public List<Book> searchAvailableBooks() {
+        List<Book> result = new ArrayList<>();
+        for (Book book : books) {
+            if (book.isAvailable()) {
+                result.add(book);
+            }
+        }
+        return result;
+    }
 }
