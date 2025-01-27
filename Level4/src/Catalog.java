@@ -1,6 +1,7 @@
 package Level4.src;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Catalog implements Searchable {
@@ -36,23 +37,18 @@ public class Catalog implements Searchable {
         return result;
     }
 
-    public List<Book> searchByISBN(String ISBN) {
+    public List<Book> searchByCategory(String category) {
         List<Book> result = new ArrayList<>();
         for (Book book : books) {
-            if (book.getISBN().equals(ISBN)) {
+            if (book.getCategory().equalsIgnoreCase(category)) {
                 result.add(book);
             }
         }
         return result;
     }
 
-    public List<Book> searchAvailableBooks() {
-        List<Book> result = new ArrayList<>();
-        for (Book book : books) {
-            if (book.isAvailable()) {
-                result.add(book);
-            }
-        }
-        return result;
+    public List<Book> sortByRating() {
+        books.sort(Comparator.comparingDouble(Book::getRating).reversed());
+        return books;
     }
 }
