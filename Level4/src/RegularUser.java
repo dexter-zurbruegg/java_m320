@@ -1,8 +1,10 @@
 package Level4.src;
 
+import java.util.List;
+
 public class RegularUser extends User {
     public RegularUser(String name, String userId) {
-        super(name, userId);
+        super(name, userId, "Regular");
     }
 
     @Override
@@ -21,10 +23,14 @@ public class RegularUser extends User {
         super.returnBook(book);
     }
 
-    public void viewBorrowedBooks() {
-        System.out.println("Books borrowed by " + getName() + ":");
-        for (Book book : getBorrowedBooks()) {
-            System.out.println(book.getTitle() + " by " + book.getAuthor());
+    public void viewRecommendations() {
+        Catalog catalog = Library.getInstance().getCatalog();
+        for (String preference : getPreferences()) {
+            List<Book> recommendedBooks = catalog.searchByCategory(preference);
+            System.out.println("Recommended books in " + preference + ":");
+            for (Book book : recommendedBooks) {
+                System.out.println(book.getTitle() + " by " + book.getAuthor());
+            }
         }
     }
 }
