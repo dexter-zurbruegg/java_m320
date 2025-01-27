@@ -59,4 +59,43 @@ public class Library {
     public Catalog getCatalog() {
         return catalog;
     }
+
+    public List<User> searchUsersByName(String name) {
+        List<User> result = new ArrayList<>();
+        for (User user : users) {
+            if (user.getName().equalsIgnoreCase(name)) {
+                result.add(user);
+            }
+        }
+        return result;
+    }
+
+    public User searchUserById(String userId) {
+        for (User user : users) {
+            if (user.getUserId().equals(userId)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public List<Book> getBorrowedBooks() {
+        List<Book> borrowedBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (!book.isAvailable()) {
+                borrowedBooks.add(book);
+            }
+        }
+        return borrowedBooks;
+    }
+
+    public List<Transaction> getUserActivity(User user) {
+        List<Transaction> userTransactions = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            if (transaction.getUser().equals(user)) {
+                userTransactions.add(transaction);
+            }
+        }
+        return userTransactions;
+    }
 }
