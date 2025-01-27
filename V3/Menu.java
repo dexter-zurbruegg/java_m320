@@ -3,13 +3,27 @@ package V3;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Manages the menu for character selection and weapon behavior changes.
+ * This class allows users to interact with the characters and modify their weapon behaviors.
+ */
 class Menu {
     private ArrayList<Figur> figuren = new ArrayList<>();
 
+    /**
+     * Adds a character to the menu.
+     * This method allows new characters to be included in the menu.
+     *
+     * @param figur the character to add
+     */
     public void addFigur(Figur figur) {
         figuren.add(figur);
     }
 
+    /**
+     * Displays the menu options.
+     * This method shows the available actions to the user.
+     */
     public void zeigeMenu() {
         System.out.println("Wähle eine Option:");
         System.out.println("1. Alle Figuren und ihr Waffenverhalten anzeigen");
@@ -17,12 +31,20 @@ class Menu {
         System.out.println("3. Beenden");
     }
 
+    /**
+     * Displays the list of characters.
+     * This method shows the characters available in the menu.
+     */
     public void zeigeFiguren() {
         for (int i = 0; i < figuren.size(); i++) {
             System.out.println((i + 1) + ". " + figuren.get(i).getCharakterName());
         }
     }
 
+    /**
+     * Executes the menu actions based on user input.
+     * This method handles the user's choices and performs the corresponding actions.
+     */
     public void ausfuehren() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
