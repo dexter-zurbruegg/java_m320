@@ -1,4 +1,4 @@
-# Book Library Management System w/ Java
+# Book Library Management System w/ Java (Angela)
 
 
 ## Description

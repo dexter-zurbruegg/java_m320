@@ -8,28 +8,30 @@ public class User {
     private String userId;
     private List<Book> borrowedBooks;
     private double totalFines;
+    private String role;
+    private List<String> preferences;
 
-    public User(String name, String userId) {
+    public User(String name, String userId, String role) {
         this.name = name;
         this.userId = userId;
         this.borrowedBooks = new ArrayList<>();
         this.totalFines = 0.0;
+        this.role = role;
+        this.preferences = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
-    }
+    // Getters and setters
+    public String getName() { return name; }
+    public String getUserId() { return userId; }
+    public List<Book> getBorrowedBooks() { return borrowedBooks; }
+    public double getTotalFines() { return totalFines; }
+    public String getRole() { return role; }
+    public List<String> getPreferences() { return preferences; }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public List<Book> getBorrowedBooks() {
-        return borrowedBooks;
-    }
-
-    public double getTotalFines() {
-        return totalFines;
+    public void addPreference(String category) {
+        if (!preferences.contains(category)) {
+            preferences.add(category);
+        }
     }
 
     public void addFine(double fine) {
